@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints,ARSCNDebugOptions.showWorldOrigin]
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -67,7 +68,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         boxNode.position = SCNVector3(0, 0, -0.5)
         boxNode.geometry?.materials = [material]
         
-        
         let box2 = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
         
         let material1 = SCNMaterial()
@@ -76,15 +76,54 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let boxNode1 = SCNNode(geometry: box2)
         boxNode1.position = SCNVector3(0.5, 0, -0.5)
         boxNode1.geometry?.materials = [material1]
-        
-        
        
         self.sceneView.scene.rootNode.addChildNode(boxNode)
         self.sceneView.scene.rootNode.addChildNode(boxNode1)
+         
+         
+        
+        /*
+         
+        // add tap gestures
+        
+        let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
+        let material = SCNMaterial()
+        material.name = "Color"
+        material.diffuse.contents = UIColor.green
+        
+        let node = SCNNode()
+        node.geometry = box
+        node.geometry?.materials = [material]
+        node.position = SCNVector3(0, 0.1, -0.5)
+        scene.rootNode.addChildNode(node)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        
+        self.sceneView.scene = scene
+        
+        */
+        
+        self.sceneView.scene = scene
+        
         
         
     }
     
+    @objc func tapped(recognizer: UIGestureRecognizer) {
+        
+        let sceneView = recognizer.view as! SCNView
+        let touchLocation = recognizer.location(in: sceneView)
+        let hitResult = sceneView.hitTest(touchLocation, options: [:])
+        
+        if !hitResult.isEmpty {
+            
+            let node = hitResult[0].node
+            let material = node.geometry?.material(named:"Color")
+            
+            material?.diffuse.contents = UIColor.yellow
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -113,6 +152,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 */
     
+    /*
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         
@@ -127,4 +167,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    */
 }
