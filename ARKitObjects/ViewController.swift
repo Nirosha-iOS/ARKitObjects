@@ -54,7 +54,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         */
         
-        /*
+        
         //Add multipleVitual object
         
         let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
@@ -75,7 +75,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         self.sceneView.scene.rootNode.addChildNode(boxNode)
         self.sceneView.scene.rootNode.addChildNode(sphereNode)
         
-        */
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
