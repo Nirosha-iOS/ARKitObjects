@@ -57,23 +57,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         //Add multipleVitual object
         
+    
         let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
         
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.green
+        material.diffuse.contents = UIImage(named: "Kishani.JPG")
         
         let boxNode = SCNNode(geometry: box)
         boxNode.position = SCNVector3(0, 0, -0.5)
         boxNode.geometry?.materials = [material]
         
-        let sphere = SCNSphere(radius: 0.2)
-        sphere.firstMaterial?.diffuse.contents = UIColor.yellow
         
-        let sphereNode = SCNNode(geometry: sphere)
-        sphereNode.position = SCNVector3(0.5, 0, -0.5)
+        let box2 = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
         
+        let material1 = SCNMaterial()
+        material1.diffuse.contents = UIImage(named: "Tamizhini.JPG")
+        
+        let boxNode1 = SCNNode(geometry: box2)
+        boxNode1.position = SCNVector3(0.5, 0, -0.5)
+        boxNode1.geometry?.materials = [material1]
+        
+        
+       
         self.sceneView.scene.rootNode.addChildNode(boxNode)
-        self.sceneView.scene.rootNode.addChildNode(sphereNode)
+        self.sceneView.scene.rootNode.addChildNode(boxNode1)
         
         
     }

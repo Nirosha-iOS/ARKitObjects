@@ -13,6 +13,8 @@
 		D8EFA86F2C0B1543002F620F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8EFA86D2C0B1543002F620F /* Main.storyboard */; };
 		D8EFA8712C0B1545002F620F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8EFA8702C0B1545002F620F /* Assets.xcassets */; };
 		D8EFA8742C0B1545002F620F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8EFA8722C0B1545002F620F /* LaunchScreen.storyboard */; };
+		D8EFA87B2C0B210F002F620F /* Kishani.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D8EFA87A2C0B210F002F620F /* Kishani.JPG */; };
+		D8EFA87D2C0B2115002F620F /* Tamizhini.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D8EFA87C2C0B2115002F620F /* Tamizhini.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		D8EFA86E2C0B1543002F620F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8EFA8702C0B1545002F620F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8EFA8732C0B1545002F620F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D8EFA87A2C0B210F002F620F /* Kishani.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kishani.JPG; sourceTree = "<group>"; };
+		D8EFA87C2C0B2115002F620F /* Tamizhini.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tamizhini.JPG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 				D8EFA8672C0B1543002F620F /* AppDelegate.swift */,
 				D8EFA8692C0B1543002F620F /* art.scnassets */,
 				D8EFA86B2C0B1543002F620F /* ViewController.swift */,
+				D8EFA87C2C0B2115002F620F /* Tamizhini.JPG */,
+				D8EFA87A2C0B210F002F620F /* Kishani.JPG */,
 				D8EFA86D2C0B1543002F620F /* Main.storyboard */,
 				D8EFA8702C0B1545002F620F /* Assets.xcassets */,
 				D8EFA8722C0B1545002F620F /* LaunchScreen.storyboard */,
@@ -124,7 +130,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8EFA86A2C0B1543002F620F /* art.scnassets in Resources */,
+				D8EFA87B2C0B210F002F620F /* Kishani.JPG in Resources */,
 				D8EFA8742C0B1545002F620F /* LaunchScreen.storyboard in Resources */,
+				D8EFA87D2C0B2115002F620F /* Tamizhini.JPG in Resources */,
 				D8EFA8712C0B1545002F620F /* Assets.xcassets in Resources */,
 				D8EFA86F2C0B1543002F620F /* Main.storyboard in Resources */,
 			);
