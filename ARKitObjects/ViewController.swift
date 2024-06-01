@@ -54,8 +54,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         */
         
-        //Add multipleVitual tag
+        /*
+        //Add multipleVitual object
         
+        let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.green
+        
+        let boxNode = SCNNode(geometry: box)
+        boxNode.position = SCNVector3(0, 0, -0.5)
+        boxNode.geometry?.materials = [material]
+        
+        let sphere = SCNSphere(radius: 0.2)
+        sphere.firstMaterial?.diffuse.contents = UIColor.yellow
+        
+        let sphereNode = SCNNode(geometry: sphere)
+        sphereNode.position = SCNVector3(0.5, 0, -0.5)
+        
+        self.sceneView.scene.rootNode.addChildNode(boxNode)
+        self.sceneView.scene.rootNode.addChildNode(sphereNode)
+        
+        */
     }
     
     override func viewWillAppear(_ animated: Bool) {
