@@ -12,9 +12,21 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    private var labelName:UILabel = UILabel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.labelName.frame = CGRect(x: 0, y: 0, width: self.sceneView.frame.size.width, height: 44)
+        self.labelName.center = self.sceneView.center
+        self.labelName.textAlignment = .center
+        self.labelName.textColor = .brown
+        self.labelName.alpha = 0
+        self.sceneView.addSubview(self.labelName)
+        
+        
         
         self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints,ARSCNDebugOptions.showWorldOrigin]
         // Set the view's delegate
@@ -134,6 +146,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async {
+            self.labelName.text = "plan detected"
+            UIView.animate(withDuration: 0.4, animations: {
+                self.labelName.alpha = 0.0
+            }){(completion :Bool) in
+                self.labelName.alpha = 0.0
+                
+            }
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -150,7 +174,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
      
         return node
     }
-*/
+    */
+
     
     /*
     func session(_ session: ARSession, didFailWithError error: Error) {
