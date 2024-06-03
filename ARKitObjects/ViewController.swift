@@ -8,12 +8,17 @@
 import UIKit
 import SceneKit
 import ARKit
-
+enum BodyType : Int {
+    case box = 1
+    case plane = 2
+    case car = 3
+}
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     private var labelName:UILabel = UILabel()
-    
+    var planes = [OverlayPlane]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,12 +147,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
 
+        configuration.planeDetection = .horizontal
         // Run the view's session
         sceneView.session.run(configuration)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
+      /*  DispatchQueue.main.async {
             self.labelName.text = "plan detected"
             UIView.animate(withDuration: 0.4, animations: {
                 self.labelName.alpha = 0.0
@@ -156,6 +162,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
             }
         }
+
+*/
+
+        if !(anchor is ARPlaneAnchor) {
+            return
+        }
+        let plane = OverlayPlane(anchor: anchor as! ARPlaneAnchor)
+        self.planes.append(plane)
+
+        node.addChildNode(plane)
+
+
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        
+        let plane = self.planes.filter { plane in
+            return plane.anchor.identifier == anchor.identifier
+        }.first
+        
+        if plane == nil {
+            return
+        }
+        
+        plane?.update(anchor: anchor as! ARPlaneAnchor)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
