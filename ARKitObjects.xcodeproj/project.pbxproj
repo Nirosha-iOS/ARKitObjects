@@ -17,6 +17,7 @@
 		D8EFA87D2C0B2115002F620F /* Tamizhini.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D8EFA87C2C0B2115002F620F /* Tamizhini.JPG */; };
 		D8EFA87F2C0D7655002F620F /* OverlayPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EFA87E2C0D7655002F620F /* OverlayPlane.swift */; };
 		D8EFA8812C0D7DC1002F620F /* overlay_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = D8EFA8802C0D7DC1002F620F /* overlay_grid.png */; };
+		D8EFA8832C0D8F75002F620F /* CollisionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EFA8822C0D8F75002F620F /* CollisionDetection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D8EFA87C2C0B2115002F620F /* Tamizhini.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tamizhini.JPG; sourceTree = "<group>"; };
 		D8EFA87E2C0D7655002F620F /* OverlayPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPlane.swift; sourceTree = "<group>"; };
 		D8EFA8802C0D7DC1002F620F /* overlay_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlay_grid.png; sourceTree = "<group>"; };
+		D8EFA8822C0D8F75002F620F /* CollisionDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionDetection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				D8EFA8672C0B1543002F620F /* AppDelegate.swift */,
 				D8EFA8692C0B1543002F620F /* art.scnassets */,
 				D8EFA86B2C0B1543002F620F /* ViewController.swift */,
+				D8EFA8822C0D8F75002F620F /* CollisionDetection.swift */,
 				D8EFA87E2C0D7655002F620F /* OverlayPlane.swift */,
 				D8EFA87C2C0B2115002F620F /* Tamizhini.JPG */,
 				D8EFA8802C0D7DC1002F620F /* overlay_grid.png */,
@@ -154,6 +157,7 @@
 			files = (
 				D8EFA86C2C0B1543002F620F /* ViewController.swift in Sources */,
 				D8EFA87F2C0D7655002F620F /* OverlayPlane.swift in Sources */,
+				D8EFA8832C0D8F75002F620F /* CollisionDetection.swift in Sources */,
 				D8EFA8682C0B1543002F620F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +320,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,6 +351,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,6 +8,7 @@
 import UIKit
 import SceneKit
 import ARKit
+
 enum BodyType : Int {
     case box = 1
     case plane = 2
@@ -72,7 +73,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         */
         
-        
+       /*
         //Add multipleVitual object
         
     
@@ -97,7 +98,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         self.sceneView.scene.rootNode.addChildNode(boxNode)
         self.sceneView.scene.rootNode.addChildNode(boxNode1)
          
-         
+         */
         
         /*
          
@@ -123,23 +124,72 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         self.sceneView.scene = scene
         
-        
+        registerGestureRecognizer()
         
     }
     
+    private func registerGestureRecognizer() {
+        
+        let tapGesture = UIGestureRecognizer(target: self, action: #selector(tapped))
+    }
     @objc func tapped(recognizer: UIGestureRecognizer) {
         
-        let sceneView = recognizer.view as! SCNView
+      /*  let sceneView = recognizer.view as! SCNView
         let touchLocation = recognizer.location(in: sceneView)
         let hitResult = sceneView.hitTest(touchLocation, options: [:])
         
-        if !hitResult.isEmpty {
+      / if !hitResult.isEmpty {
             
             let node = hitResult[0].node
             let material = node.geometry?.material(named:"Color")
             
             material?.diffuse.contents = UIColor.yellow
-        }
+        }*/
+        
+        
+        
+        let location = recognizer.location(in: sceneView)
+           
+           guard let raycastQuery = sceneView.raycastQuery(from: location, allowing: .existingPlaneGeometry, alignment: .any) else {
+               return
+           }
+           
+           let raycastResults = sceneView.session.raycast(raycastQuery)
+           
+           if !raycastResults.isEmpty {
+               guard let raycastResult = raycastResults.first else {
+                   return
+               }
+               
+               addBox(hitResult: raycastResult)
+           }
+        
+    }
+    
+    func addBox(hitResult:ARRaycastResult) {
+        
+      /*  let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 0.1, chamferRadius: 0)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.red
+        
+        boxGeometry.materials = [material]
+        
+        let boxNode = SCNNode(geometry: boxGeometry)
+        
+        
+        */
+        let box = SCNBox(width: 0.2, height: 0.2, length: 0.1, chamferRadius: 0)
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "Kishani.JPG")
+        box.materials = [material]
+        let boxNode = SCNNode(geometry: box)
+        boxNode.geometry?.materials = [material]
+        
+        
+        boxNode.position = SCNVector3(hitResult.worldTransform.columns.3.x,hitResult.worldTransform.columns.3.y + Float(box.height/2), hitResult.worldTransform.columns.3.z)
+        
+        self.sceneView.scene.rootNode.addChildNode(boxNode)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
